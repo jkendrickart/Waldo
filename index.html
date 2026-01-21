@@ -28,7 +28,56 @@
 </head>
 
 <body id="top">
-    
+
+
+
+
+
+
+
+
+     <!-- Fixed Butterfly on Right Edge -->
+<div class="butterfly-fixed-wrap">
+  <img class="butterfly" id="butterflyFrame" src="images/monarch/butterfly00086400.png" alt="Butterfly animation">
+</div>
+
+
+  <!-- BUTTERFLY SCROLL SCRIPT -->
+
+<script>document.addEventListener("DOMContentLoaded", () => {
+  const img = document.getElementById("butterflyFrame");
+  const folder = "images/monarch/";
+  const prefix = "butterfly00086";
+  const startIndex = 400;
+  const endIndex = 546;
+  const padLength = 2;
+  const totalFrames = endIndex - startIndex;
+
+  // Preload frames
+  for (let i = startIndex; i <= endIndex; i++) {
+    const preload = new Image();
+    const padded = String(i).padStart(padLength, "0");
+    preload.src = `${folder}${prefix}${padded}.png`;
+  }
+
+  function updateFrame() {
+    const scrollTop = window.scrollY;
+    const docHeight = document.body.scrollHeight - window.innerHeight;
+    const progress = scrollTop / docHeight;          // 0 → 1
+    const frame = startIndex + Math.round(progress * totalFrames);
+    const padded = String(frame).padStart(padLength, "0");
+    img.src = `${folder}${prefix}${padded}.png`;
+  }
+
+  window.addEventListener("scroll", updateFrame);
+  updateFrame();
+});
+</script>
+
+
+
+
+
     <!-- preloader
     ================================================== -->
     <div id="preloader">

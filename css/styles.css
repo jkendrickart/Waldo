@@ -4803,3 +4803,50 @@ button.modal__close-btn:hover {
         text-align: right;
     }
 }
+
+/* ==============================
+   FIXED BUTTERFLY ON RIGHT EDGE
+============================== */
+.butterfly-fixed-wrap {
+  position: fixed;       /* fixed to viewport */
+  right: 20px;              /* attach to right edge */
+  bottom: 100px;         /* adjust so legs appear "resting" */
+  width: 300px;          /* adjust size */
+  pointer-events: none;  /* allow clicks through it */
+  z-index: 1;
+}
+
+.butterfly-fixed-wrap .butterfly {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.6;                /* semi-transparent */
+  filter: brightness(1);      /* optional brightness adjustment */
+  transform-origin: right bottom; /* legs stay anchored */
+  will-change: transform;       /* smooth GPU accelerated animation */
+  transform: translateX(77px) translateY(-5px);
+
+}
+
+@media screen and (max-width: 1600px) {
+    .butterfly-fixed-wrap {
+  position: fixed;       /* fixed to viewport */
+  right: 0;              /* attach to right edge */
+  bottom: 300px;         /* adjust so legs appear "resting" */
+  width: 3px;          /* adjust size */
+  pointer-events: none;  /* allow clicks through it */
+  z-index: 1;
+}
+
+.butterfly-fixed-wrap .butterfly {
+  display: block;
+  width: 100%;
+  height: auto;
+  opacity: 0.6;                /* semi-transparent */
+  filter: brightness(1);      /* optional brightness adjustment */
+  transform-origin: right bottom; /* legs stay anchored */
+  will-change: transform;       /* smooth GPU accelerated animation */
+  transform: translateX(77px) translateY(-5px);
+
+}
+}
